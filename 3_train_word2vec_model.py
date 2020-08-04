@@ -27,7 +27,8 @@ if __name__ == '__main__':
     logger.info("running %s" % ' '.join(sys.argv))
 
     # inp为输入语料, outp1 为输出模型, outp2为原始c版本word2vec的vector格式的模型
-    fdir = '/Users/sy/Desktop/pyRoot/wiki_zh_vec/'
+    # fdir = '/Users/sy/Desktop/pyRoot/wiki_zh_vec/'
+    fdir = ''
     inp = fdir + 'wiki.zh.simp.seg.txt'
     outp1 = fdir + 'wiki.zh.text.model'
     outp2 = fdir + 'wiki.zh.text.vector'

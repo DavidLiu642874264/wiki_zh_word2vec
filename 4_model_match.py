@@ -4,20 +4,45 @@
 
 import warnings
 warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')# 忽略警告
-import sys  
-reload(sys)  
-sys.setdefaultencoding('utf8')
+import sys
+#import importlib
+#importlib.reload(sys)
+#reload(sys)
+#sys.setdefaultencoding('utf8')
 import gensim
 
 
 if __name__ == '__main__':
-    fdir = '/Users/sy/Desktop/pyRoot/wiki_zh_vec/'
+    #fdir = '/Users/sy/Desktop/pyRoot/wiki_zh_vec/'
+    fdir = ''
+    print("loading vhvhvh")
     model = gensim.models.Word2Vec.load(fdir + 'wiki.zh.text.model')
-
+    print("start similar")
+    word = model.most_similar(u"百度 科技 有限 公司".split(" "),topn=10)
+    for t in word:
+        print(t[0], t[1])
+    print("*"*50)
     word = model.most_similar(u"足球")
     for t in word:
-        print t[0],t[1]
-
+        print(t[0], t[1])
+    print("*"*50)
+    word = model.most_similar(u"刘备")
+    for t in word:
+        print(t[0], t[1])
+    print("*"*50)
+    word = model.most_similar(u"曹操")
+    for t in word:
+        print(t[0], t[1])
+    print("*"*50)
+    word = model.most_similar(u"毛泽东")
+    for t in word:
+        print(t[0], t[1])
+    print("*"*50)
+    simi = model.similarity(u"毛泽东",u"毛泽东")
+    print("similarity:{}".format(simi))
+    print("*"*50)
+    #simi = model.similarity(u"百度",u"百度科技有限公司")
+    #print("similarity:{}".format(simi))
     '''
     word = model.most_similar(positive=[u'皇上',u'国王'],negative=[u'皇后'])
     for t in word:
