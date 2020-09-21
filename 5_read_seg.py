@@ -11,7 +11,7 @@ if __name__ == '__main__':
     line_num = 1
     line = f.readline()
     while line:
-        if line_num % 10000 == 0:
+        if line_num % 1000000 == 0:
             print('---reading ', line_num,' article seg---', line)
         line_num += 1
         line = f.readline()
